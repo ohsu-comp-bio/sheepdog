@@ -217,6 +217,8 @@ class DelimitedConverter(object):
                 return parse_bool_from_string(value)
             elif strip(value) == '':
                 return None
+            elif value_type == list:
+                return value.split(',')
             else:
                 return value_type(value)
         except Exception as exception:  # pylint: disable=broad-except
